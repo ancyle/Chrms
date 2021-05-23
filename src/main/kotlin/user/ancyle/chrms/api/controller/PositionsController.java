@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/app/positions")
-public class PositionController {
+public class PositionsController {
 
     private PositionService positionService;
 
     @Autowired
-    public PositionController(PositionService positionService){this.positionService=positionService;}
+    public PositionsController(PositionService positionService){this.positionService=positionService;}
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
