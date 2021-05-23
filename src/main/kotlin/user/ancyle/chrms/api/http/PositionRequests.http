@@ -1,0 +1,12 @@
+POST http://localhost:8080/app/positions/new
+Content-Type: application/json
+
+{
+  "positionName": "Developer"
+}
+
+###
+GET http://localhost:8080/app/positions/all
+Accept: application/json
+
+###

@@ -6,7 +6,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "job_seekers")
-data class JobSeeker(
+public data class JobSeeker(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "js_id")

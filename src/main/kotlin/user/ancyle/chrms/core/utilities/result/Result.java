@@ -5,8 +5,8 @@ public class Result {
     public Result(String message,boolean success){this(success); this.message=message;}
     public Result(boolean success){this.success=success;}
 
-    private String message;
-    private boolean success;
+    protected String message;
+    protected boolean success;
 
     public String getMessage() {
         return message;
