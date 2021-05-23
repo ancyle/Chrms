@@ -8,4 +8,5 @@ import user.ancyle.chrms.entities.concretes.Employer;
 @Repository
 @Transactional
 public interface EmployerRepo extends JpaRepository<Employer,Short> {
+    boolean deleteByUser_UserMail(String userMail);
 }

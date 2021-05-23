@@ -30,7 +30,7 @@ public class PositionsController {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public Result newPosition(@RequestBody Position position) {
         var result = this.positionService.newPosition(position);
-        if (!result.isSuccess()) return new ErrorResult(Messages.failure);
+        if (!result.isSuccess()) return new ErrorResult(result.getMessage());
         return result;
     }
 }

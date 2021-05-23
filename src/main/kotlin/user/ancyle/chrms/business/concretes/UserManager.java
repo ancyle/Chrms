@@ -40,4 +40,6 @@ public class UserManager implements UserService {
         if(!result) return  new ErrorResult(Messages.userExists);
         return new SuccessResult();
     }
+
+    //Business Rules
 }

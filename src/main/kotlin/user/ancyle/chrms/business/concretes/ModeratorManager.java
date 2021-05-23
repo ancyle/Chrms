@@ -36,4 +36,6 @@ public class ModeratorManager implements ModeratorService {
     public DataResult<List<Moderator>> listAllModerators() {
         return new SuccessDataResult<>(this.moderatorRepo.findAll(),Messages.success);
     }
+
+    //Business Rules
 }

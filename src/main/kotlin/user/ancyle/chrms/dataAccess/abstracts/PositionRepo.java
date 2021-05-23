@@ -8,4 +8,6 @@ import user.ancyle.chrms.entities.concretes.Position;
 @Repository
 @Transactional
 public interface PositionRepo extends JpaRepository<Position,Integer> {
+
+    boolean existsByPositionName(String positionName);
 }

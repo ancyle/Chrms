@@ -49,6 +49,8 @@ public class JobSeekerManager implements JobSeekerService {
         return new SuccessDataResult<>(this.jobSeekerRepo.findAll(),Messages.success);
     }
 
+    // Business Rules
+
     @SneakyThrows
     private Result verifyUserIdentityByMernis(JobSeeker jobSeeker) {
         GWOKPSPublicSoap soap=new GWOKPSPublicSoap();

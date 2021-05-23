@@ -41,6 +41,16 @@ public class EmployerManager implements EmployerService {
         return new SuccessDataResult<>(this.employerRepo.findAll(),Messages.success);
     }
 
+    @NotNull
+    @Override
+    public Result deleteEmployer(String byMail){
+        var result=this.employerRepo.deleteByUser_UserMail(byMail);
+        if(!result) return new ErrorResult(Messages.failure);
+        return new SuccessResult(Messages.success);
+    }
+
+    // Business Rules
+
     private Result checkCorpMailIsValid(Employer employer){
         var result=employer.getUser().getUserMail().contains(employer.getCorpName());
         if(!result) return new ErrorResult(Messages.corpMailInvalid);

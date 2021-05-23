@@ -10,5 +10,6 @@ sealed class Messages {
         const val passwordFail="Passwords are different."
         const val userExists="User already exists."
         const val corpMailInvalid="Corporation mail is invalid."
+        const val positionNameExists="This Position is already exists."
     }
 }
