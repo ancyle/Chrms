@@ -58,13 +58,13 @@ public class JobSeekerManager implements JobSeekerService {
     }
 
     private Result checkPasswordIsMatching(JobSeeker jobSeeker,String password){
-        var result=jobSeeker.getUser().getUserPass()==password;
+        var result=jobSeeker.getUser().getUserPass().equals(password);
         if(!result) return new ErrorResult(Messages.passwordFail);
         return new SuccessResult();
     }
 
     private Result checkIfUserExist(JobSeeker jobSeeker){
-    var result=this.userService.getUserByMail(jobSeeker);
+    var result=this.userService.getUserByMail(jobSeeker.getUser().getUserMail());
     if(result.isSuccess()) return new ErrorResult(result.getMessage());
     return new SuccessResult();
     }

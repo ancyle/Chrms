@@ -59,8 +59,8 @@ public class UsersController {
 
     @PostMapping("/new/emp")
     @ResponseBody
-    public Result newEmployer(@RequestBody Employer employer,@RequestParam String mail,@RequestParam String password){
-        var result=this.employerService.newEmployer(employer,mail,password);
+    public Result newEmployer(@RequestBody Employer employer,@RequestParam String password){
+        var result=this.employerService.newEmployer(employer,password);
         if(!result.isSuccess()) return new ErrorResult(result.getMessage());
         return new SuccessResult("Registration is success. Step 1: Verify your email.");
     }

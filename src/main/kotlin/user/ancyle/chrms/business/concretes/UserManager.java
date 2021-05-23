@@ -35,8 +35,8 @@ public class UserManager implements UserService {
 
     @NotNull
     @Override
-    public Result getUserByMail(@NotNull JobSeeker jobSeeker) {
-        var result=this.userRepo.existsUserByUserMail(jobSeeker.getUser().getUserMail());
+    public Result getUserByMail(@NotNull String mail) {
+        var result=this.userRepo.existsUserByUserMail(mail);
         if(!result) return  new ErrorResult(Messages.userExists);
         return new SuccessResult();
     }

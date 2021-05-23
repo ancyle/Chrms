@@ -8,5 +8,5 @@ import user.ancyle.chrms.entities.concretes.User
 interface UserService {
     fun newUser(user:User):Result;
     fun allUsers():DataResult<List<User>>;
-    fun getUserByMail(jobSeeker: JobSeeker):Result;
+    fun getUserByMail(mail:String):Result;
 }

@@ -5,6 +5,6 @@ import user.ancyle.chrms.core.utilities.result.Result
 import user.ancyle.chrms.entities.concretes.Employer
 
 interface EmployerService {
-    fun newEmployer(employer:Employer,mail:String,password:String):Result;
+    fun newEmployer(employer:Employer,password:String):Result;
     fun listAllEmployers():DataResult<List<Employer>>
 }
