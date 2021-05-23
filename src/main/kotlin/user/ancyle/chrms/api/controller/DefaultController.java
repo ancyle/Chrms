@@ -17,12 +17,14 @@ public class DefaultController {
     public DefaultController(){
         this.commands=new ArrayList<>();
         commands.add("Try the commands below :");
-        commands.add("New Position : /app/positions/new");
+        commands.add("To Show Data");
         commands.add("List Positions : /app/positions/all");
         commands.add("List Users : /app/users/all");
         commands.add("List Employers : /app/users/all/emp");
         commands.add("List JobSeekers : /app/users/all/js");
         commands.add("List Moderators : /app/users/all/mod");
+        commands.add("To Add New Data");
+        commands.add("New Position : /app/positions/new");
         commands.add("New User : /app/users/new/usr");
         commands.add("New Employer : /app/users/new/emp");
         commands.add("New Moderator : /app/users/new/mod");
