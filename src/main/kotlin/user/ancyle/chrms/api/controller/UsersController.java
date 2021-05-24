@@ -3,18 +3,12 @@ package user.ancyle.chrms.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import user.ancyle.chrms.business.abstracts.EmployerService;
-import user.ancyle.chrms.business.abstracts.JobSeekerService;
-import user.ancyle.chrms.business.abstracts.ModeratorService;
-import user.ancyle.chrms.business.abstracts.UserService;
+import user.ancyle.chrms.business.abstracts.*;
 import user.ancyle.chrms.core.utilities.result.DataResult;
 import user.ancyle.chrms.core.utilities.result.ErrorResult;
 import user.ancyle.chrms.core.utilities.result.Result;
 import user.ancyle.chrms.core.utilities.result.SuccessResult;
-import user.ancyle.chrms.entities.concretes.Employer;
-import user.ancyle.chrms.entities.concretes.JobSeeker;
-import user.ancyle.chrms.entities.concretes.Moderator;
-import user.ancyle.chrms.entities.concretes.User;
+import user.ancyle.chrms.entities.concretes.*;
 
 import java.util.List;
 
@@ -26,15 +20,17 @@ public class UsersController {
     private final EmployerService employerService;
     private final JobSeekerService jobSeekerService;
     private final ModeratorService moderatorService;
+    private final ConfirmationService confirmationService;
 
     @Autowired
     public UsersController
             (UserService userService,EmployerService employerService,
-             JobSeekerService jobSeekerService,ModeratorService moderatorService){
+             JobSeekerService jobSeekerService,ModeratorService moderatorService,ConfirmationService confirmationService){
         this.employerService=employerService;
         this.userService=userService;
         this.jobSeekerService=jobSeekerService;
         this.moderatorService=moderatorService;
+        this.confirmationService=confirmationService;
     }
 
 
@@ -75,9 +71,10 @@ public class UsersController {
 
     @PostMapping("/new/js")
     @ResponseBody
-    public Result newJobSeeker(@RequestBody JobSeeker jobSeeker,@RequestParam String password){
+    public Result newJobSeeker(@RequestBody JobSeeker jobSeeker, @RequestParam String password){
         var result=this.jobSeekerService.newJobSeeker(jobSeeker,password);
         if(!result.isSuccess()) return new ErrorResult(result.getMessage());
+        confirmationService.newConfirmation(jobSeeker.getUser());
         return new SuccessResult("Registration is success. Step 1: Verify your email.");
     }
 
