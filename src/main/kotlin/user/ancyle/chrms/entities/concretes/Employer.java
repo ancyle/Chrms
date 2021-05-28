@@ -1,16 +1,19 @@
 package user.ancyle.chrms.entities.concretes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="employers")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","announcements"})
 @Data
 public class Employer {
 
@@ -30,4 +33,7 @@ public class Employer {
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
+
+    @OneToMany(mappedBy="employer")
+    List<Announcement> announcements;
 }

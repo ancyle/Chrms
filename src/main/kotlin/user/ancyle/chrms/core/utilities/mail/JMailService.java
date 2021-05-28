@@ -21,6 +21,7 @@ public class JMailService implements MailService{
         this.mailSender=javaMailSender;
     }
 
+    @NotNull
     @Override
     public Result sendMail(@NotNull String mail, @NotNull String token) {
         var mime=mailSender.createMimeMessage();
