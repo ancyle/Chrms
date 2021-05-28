@@ -38,6 +38,17 @@ public class AnnouncementManager implements AnnouncementService {
     }
 
     @Override
+    public Result modify(Announcement announcement) {
+        this.announcementRepo.save(announcement);
+        return new SuccessResult();
+    }
+
+    @Override
+    public DataResult<Announcement> getById(short id) {
+        return new SuccessDataResult<>(this.announcementRepo.getById(id));
+    }
+
+    @Override
     public DataResult<List<Announcement>> findAllByExDate(LocalDate exDate) {
         return new SuccessDataResult<>(this.announcementRepo.findAllByExDate(exDate));
     }
